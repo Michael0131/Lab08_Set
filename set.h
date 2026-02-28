@@ -132,12 +132,12 @@ public:
    bool   empty() const noexcept 
    { 
       // ---------- (James Code to Complete) ----------
-      return true;    
+      return bst.empty();    
    }
    size_t size() const noexcept 
    { 
       // ---------- (James Code to Complete) ----------
-      return 99;
+      return bst.size();
    }
 
    //
