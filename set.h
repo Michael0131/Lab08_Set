@@ -45,27 +45,22 @@ public:
    //
    set() 
    { 
-      // ---------- (Michael Code to Complete) ----------
    }
    set(const set &  rhs)
    { 
-      // ---------- (Michael Code to Complete) ----------
       bst = rhs.bst;
    }
    set(set && rhs) 
    { 
-      // ---------- (Michael Code to Complete) ----------
       bst = std::move(rhs.bst);
    }
    set(const std::initializer_list <T> & il) 
    {
-      // ---------- (Michael Code to Complete) ----------
       insert(il);
    }
    template <class Iterator>
    set(Iterator first, Iterator last) 
    {
-      // ---------- (Michael Code to Complete) ----------
       insert(first, last);
    }
   ~set() { }
@@ -76,28 +71,24 @@ public:
 
    set & operator = (const set & rhs)
    {
-      // ---------- (Michael Code to Complete) ----------
       if (this != &rhs)
          bst = rhs.bst;
       return *this;
    }
    set & operator = (set && rhs)
    {
-      // ---------- (Michael Code to Complete) ----------
       if (this != &rhs)
          bst = std::move(rhs.bst);
       return *this;
    }
    set & operator = (const std::initializer_list <T> & il)
    {
-      // ---------- (Michael Code to Complete) ----------
       clear();
       insert(il);
       return *this;
    }
    void swap(set& rhs) noexcept
    {
-      // ---------- (Michael Code to Complete) ----------
       bst.swap(rhs.bst);
    }
 
@@ -168,12 +159,10 @@ public:
    //
    void clear() noexcept 
    { 
-      // ---------- (Michael Code to Complete) ----------
       bst.clear();
    }
    iterator erase(iterator &it)
    { 
-      // ---------- (Michael Code to Complete) ----------
       if (it.it.pNode == nullptr)
          return end();
 
@@ -183,7 +172,6 @@ public:
    }
    size_t erase(const T & t) 
    {
-      // ---------- (Michael Code to Complete) ----------
       iterator it = find(t);
       if (it == end())
          return 0;
@@ -219,12 +207,10 @@ public:
    // constructors, destructors, and assignment operator
    iterator() 
    { 
-      // ---------- (Michael Code to Complete) ----------
       it = typename custom::BST<T>::iterator(nullptr);
    }
    iterator(const typename custom::BST<T>::iterator& itRHS) 
    {  
-      // ---------- (Michael Code to Complete) ----------
       it = itRHS;
    }
    iterator(const iterator & rhs) 
