@@ -120,7 +120,6 @@ public:
    //
    iterator find(const T& t) 
    { 
-      // ---------- (James Code to Complete) ----------
       return iterator(bst.find(t)); 
    }
 
@@ -129,12 +128,10 @@ public:
    //
    bool   empty() const noexcept 
    { 
-      // ---------- (James Code to Complete) ----------
       return bst.empty();    
    }
    size_t size() const noexcept 
    { 
-      // ---------- (James Code to Complete) ----------
       return bst.size();
    }
 
@@ -143,24 +140,26 @@ public:
    //
    std::pair<iterator, bool> insert(const T& t)
    {
-      // ---------- (James Code to Complete) ----------
       std::pair<iterator, bool> p(iterator(), true);
+      p = bst.insert(t, true);
       return p;
    }
    std::pair<iterator, bool> insert(T&& t)
    {
-      // ---------- (James Code to Complete) ----------
       std::pair<iterator, bool> p(iterator(), true);
+      p = bst.insert(t, true);
       return p;
    }
    void insert(const std::initializer_list <T>& il)
    {
-      // ---------- (James Code to Complete) ----------
+      for (const T& element : il)
+         insert(element);
    }
    template <class Iterator>
    void insert(Iterator first, Iterator last)
    {
-      // ---------- (James Code to Complete) ----------
+      for (auto it = first; it != last; it++)
+         insert(*it);
    }
 
 
