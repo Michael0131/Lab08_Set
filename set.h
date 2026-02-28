@@ -108,13 +108,11 @@ public:
    class iterator;
    iterator begin() const noexcept 
    { 
-      // ---------- (Brayden Code to Complete) ----------
-      return iterator(); 
+      return iterator(bst.begin()); 
    }
    iterator end() const noexcept 
    { 
-      // ---------- (Brayden Code to Complete) ----------
-      return iterator(); 
+      return iterator(bst.end()); 
    }
 
    //
@@ -196,8 +194,10 @@ public:
    }
    iterator erase(iterator &itBegin, iterator &itEnd)
    {
-      // ---------- (Brayden Code to Complete) ----------
-      return iterator();
+      // Erase up to, but not including, itEnd 
+      while (itBegin != itEnd)
+         itBegin = erase(itBegin); // Erase returns the next iterator
+       return itBegin;
    }
 
 private:
@@ -230,59 +230,59 @@ public:
    }
    iterator(const iterator & rhs) 
    { 
-      // ---------- (Brayden Code to Complete) ----------
+       it = rhs.it;
    }
    iterator & operator = (const iterator & rhs)
    {
-      // ---------- (Brayden Code to Complete) ----------
+      if (this != &rhs)
+         it = rhs.it;
       return *this;
    }
 
    // equals, not equals operator
    bool operator != (const iterator & rhs) const 
    { 
-      // ---------- (Brayden Code to Complete) ----------
-      return true;
+      return it != rhs.it;
    }
    bool operator == (const iterator & rhs) const 
    { 
-      // ---------- (Brayden Code to Complete) ----------
-      return true; 
+      return it == rhs.it;
    }
 
    // dereference operator: by-reference so we can modify the Set
    const T & operator * () const 
    { 
-      // ---------- (Brayden Code to Complete) ----------
-      return *(new T); 
+      return *it; 
    }
 
    // prefix increment
    iterator & operator ++ ()
    {
-      // ---------- (Brayden Code to Complete) ----------
-      return *this;
+       ++it;
+       return *this;
    }
 
    // postfix increment
    iterator operator++ (int postfix)
    {
-      // ---------- (Brayden Code to Complete) ----------
-      return *this;
+       iterator tmp(*this);
+       ++(*this);
+       return tmp; // return old value
    }
    
    // prefix decrement
    iterator & operator -- ()
    {
-      // ---------- (Brayden Code to Complete) ----------
-      return *this;
+       --it;
+       return *this;
    }
    
    // postfix decrement
    iterator operator-- (int postfix)
    {
-      // ---------- (Brayden Code to Complete) ----------
-      return *this;
+       iterator tmp(*this); 
+       --(*this);
+       return tmp; // return old value
    }
    
 private:
